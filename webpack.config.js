@@ -4,9 +4,9 @@ const path = require('path');
 const compiler = require('vue-template-compiler');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
-  // watch: true,
   entry: './src/index.js',
   mode: 'development',
+  devtool: 'inline-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     compress: true,
