@@ -15,6 +15,7 @@ module.exports = {
   },
   plugins: ['vue', 'prettier'],
   rules: {
-    'prettier/prettier': 'error'
+    'prettier/prettier': 'error',
+    quotes: ['error', 'single']
   }
 };

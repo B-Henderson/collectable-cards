@@ -1,17 +1,10 @@
 <template>
-  <div>
-    <h1>Hello world App!</h1>
-    <router-link to="/collection">Go to Collection</router-link>
-    <router-link to="/scan">Go to Scan</router-link>
-    <router-link to="/profile">Go to Profile</router-link>
+  <div class="card-collection__body">
     <router-view></router-view>
   </div>
 </template>
 <script>
-import Card from "./components/Card.vue";
-export default {
-  components: { Card }
-};
+export default {};
 </script>
 <style lang="scss">
 * {
@@ -23,8 +16,14 @@ export default {
 #app {
   height: 100vh;
   width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: rgb(223, 223, 223);
+}
+.card-collection {
+  &__body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 </style>
