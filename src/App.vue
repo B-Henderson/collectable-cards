@@ -17,7 +17,6 @@ export default {};
   height: 100vh;
   width: 100vw;
   background-color: rgb(223, 223, 223);
-  overflow: hidden;
 }
 .card-collection {
   &__body {

@@ -1,7 +1,6 @@
 <template>
   <div>
     <card></card>
-    <card></card>
   </div>
 </template>
 <script>

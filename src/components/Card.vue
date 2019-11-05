@@ -1,21 +1,34 @@
 <template>
   <div class="card-container">
-    <div class="card">
-      <div class="card__image">
-        <img
-          src="https://picsum.photos/300/250"
-          alt="image"
-          class="card__image_src"
-        />
+    <div class="card" v-bind:class="{ flipped: this.flipped }">
+      <div class="card__front">
+        <button class="card__front_flip" @click="flipCard">Flip</button>
+        <div class="card__front_image">
+          <img
+            src="https://picsum.photos/350/375"
+            alt="image"
+            class="card__front_image_src"
+          />
+        </div>
+        <div class="card__front_footer">
+          <div class="card__front_footer_rarity">
+            <span>rare</span>
+          </div>
+          <div class="card__front_footer_name">Robert the Bruce(front)</div>
+        </div>
       </div>
-      <h1 class="card__name">Card name</h1>
-      <p class="card__description">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad id officiis
-        voluptatibus quidem aliquid obcaecati doloremque impedit adipisci vero
-        cumque deleniti omnis eos architecto incidunt, quos sit inventore
-        expedita fuga!
-      </p>
-      <p class="card__rarity">uncommon</p>
+      <div class="card__back">
+        <button class="card__back_flip" @click="flipCard">Flip</button>
+        <div class="card__back_info">
+          <h1>Robert the Bruce</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa
+            atque quae enim, accusamus recusandae pariatur. Sint dolore dicta
+            quod veniam nemo maiores, reiciendis fuga ratione. Sequi deleniti
+            maxime ex cum!
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -25,6 +38,8 @@ export default {
     return {
       cardContainer: null,
       innerCard: null,
+      card: null,
+
       counter: 0,
       updateRate: 1,
       mouse: {
@@ -33,29 +48,46 @@ export default {
         x: 0,
         y: 0
       },
-      parentEl: null
+      parentEl: null,
+      flipped: false,
+      canTilt: true
     };
   },
 
   mounted: function() {
     this.cardContainer = this.$el;
     this.innerCard = this.cardContainer.querySelector('.card');
+    this.card = document.querySelector('.card');
     this.cardContainer.onmouseenter = this.onEnter;
     this.cardContainer.onmouseleave = this.onLeave;
     this.cardContainer.onmousemove = this.onMove;
     this.setMouseOrigin(this.cardContainer);
-    console.log(this.innerCard);
   },
   methods: {
     onEnter: function() {
       this.updatePerspective(event);
     },
     onLeave: function() {
-      this.innerCard.style = '';
+      if (this.canTilt) {
+        this.innerCard.style = '';
+      }
+    },
+    flipCard: function() {
+      this.flipped = !this.flipped;
+      this.canTilt = false;
+      let style = `rotateX(0deg) rotateY(${this.flipped ? '-180' : '0'}deg)`;
+      this.flipped
+        ? (this.cardContainer.style.perspective = '800px')
+        : setTimeout(() => {
+            this.canTilt = true;
+            this.cardContainer.style.perspective = '30px';
+          }, 500);
+
+      this.card.style.transform = style;
     },
 
     onMove: function(event) {
-      if (this.timeUpdate()) {
+      if (this.timeUpdate() && this.canTilt) {
         this.updatePerspective(event);
       }
     },
@@ -79,6 +111,7 @@ export default {
       this._y = event.offsetTop + Math.floor(event.offsetHeight / 2);
     },
     updateTransform(x, y) {
+      if (this.flipped) return;
       let style = `rotateX(${x}deg) rotateY(${y}deg)`;
       this.innerCard.style.transform = style;
       this.innerCard.style.webkitTransform = style;
@@ -96,12 +129,11 @@ export default {
   margin: 25px;
 }
 .card {
-  display: grid;
   transition: transform 0.5s;
   height: 450px;
   width: 350px;
-  grid-template-columns: 100%;
-  grid-template-rows: [image] auto [name] 1fr [description] 2fr [rarity] 1fr;
+
+  transform-style: preserve-3d;
   border: 1px solid black;
   background: rgb(119, 115, 193);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
@@ -111,31 +143,74 @@ export default {
     rgba(9, 36, 121, 1) 12%,
     rgba(255, 255, 255, 0.87156869583771) 100%
   );
-  &__image {
-    grid-column: 1;
-    grid-row: image;
-    display: flex;
-    justify-content: center;
 
-    &_src {
-      object-fit: contain;
-      margin: 5px;
-      clip-path: ellipse(39% 49% at 50% 50%);
+  &__front,
+  &__back {
+    backface-visibility: hidden;
+    background-color: #eee;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: [image] auto [footer] 1fr;
+    z-index: 2;
+    position: absolute;
+    &_flip {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 1rem;
+      padding: 1rem;
+      z-index: 10;
+    }
+    &_image {
+      grid-column: 1;
+      grid-row: image;
+      display: flex;
+      justify-content: center;
+
+      &_src {
+        object-fit: contain;
+
+        // clip-path: ellipse(39% 49% at 50% 50%);
+      }
+    }
+    &_footer {
+      grid-row: footer;
+      grid-column: 1;
+      display: grid;
+      background-color: #eee;
+      grid-template-rows: 100%;
+      grid-template-columns: [rarity] 1fr [name] 3fr;
+      &_name,
+      &_rarity {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      &_rarity {
+        margin: 1rem;
+        height: 60%;
+        background-color: lightblue;
+      }
     }
   }
-  &__name {
-    grid-column: 1;
-    grid-row: name;
-    text-align: center;
-    color: #eee;
-  }
-  &__rarity {
-    text-align: center;
-  }
-  &__description {
-    margin: 5px 15px;
-    padding: 5px 15px;
-    background-color: #eee;
+  &__back {
+    padding: 1rem;
+    transform: rotateY(180deg);
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    h1 {
+      margin: 3rem 0 3rem 0;
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.3rem;
+    }
+    &_info {
+    }
   }
 }
 </style>
