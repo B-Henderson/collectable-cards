@@ -79,7 +79,7 @@ export default {
       this._y = event.offsetTop + Math.floor(event.offsetHeight / 2);
     },
     updateTransform(x, y) {
-      let style = `rotateX(${x * 2}deg) rotateY(${y * 2}deg)`;
+      let style = `rotateX(${x}deg) rotateY(${y}deg)`;
       this.innerCard.style.transform = style;
       this.innerCard.style.webkitTransform = style;
       this.innerCard.style.mozTransform = style;
@@ -93,6 +93,7 @@ export default {
 <style lang="scss">
 .card-container {
   perspective: 30px;
+  margin: 25px;
 }
 .card {
   display: grid;
@@ -103,7 +104,7 @@ export default {
   grid-template-rows: [image] auto [name] 1fr [description] 2fr [rarity] 1fr;
   border: 1px solid black;
   background: rgb(119, 115, 193);
-  box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   background: linear-gradient(
     0deg,
     rgba(119, 115, 193, 1) 0%,
