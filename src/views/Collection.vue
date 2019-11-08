@@ -1,11 +1,14 @@
 <template>
-  <div>
-    <card></card>
-  </div>
+    <div>
+        <h1 class="heading1">Your collection</h1>
+        <card></card>
+    </div>
 </template>
+
 <script>
-import Card from '../components/Card.vue';
+import Card from '../components/Card.vue'
+
 export default {
-  components: { Card }
-};
+    components: { Card }
+}
 </script>
