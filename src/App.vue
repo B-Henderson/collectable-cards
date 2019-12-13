@@ -41,7 +41,7 @@ body {
 	background-color: rgb(223, 223, 223);
 	box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
 	height: 100%;
-    padding: 5px 30px;
+    padding: 0 30px;
     position: relative;
 	overflow: hidden;
 	width: 100%;
