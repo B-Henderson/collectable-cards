@@ -65,6 +65,11 @@ export default {
                     username: 'BitFun',
                     cardsCollected: 4
                 },
+                {
+                    position: '7th',
+                    username: 'Cheesecake',
+                    cardsCollected: 1
+                },
             ],
             showItems: false
         }
@@ -87,12 +92,12 @@ export default {
 
     &-leave-active {
         transition: opacity .4s linear, transform .4s cubic-bezier(.5, 0, .7, .4);
-        transition-delay: calc( 0.2s * (var(--total) - var(--i)) );
+        transition-delay: calc( 0.3s * (var(--total) - var(--i)) );
     }
 
     &-enter-active {
         transition: opacity 1s linear, transform 1.5s cubic-bezier(.2, .5, .1, 1);
-        transition-delay: calc( 0.2s * var(--i) );
+        transition-delay: calc( 0.3s * var(--i) );
     }
 
     &-enter,
