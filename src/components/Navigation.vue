@@ -1,9 +1,15 @@
 <template>
     <div class="navigation">
-        <router-link to="/" class="navigation__item">Home</router-link>
-        <router-link to="/collection" class="navigation__item">Collection</router-link>
-        <router-link to="/leaderboard" class="navigation__item">Leaderboard</router-link>
-        <router-link to="/settings" class="navigation__item">Settings</router-link>
+        <a href="#" class="navigation__item">Home</a>
+        <!-- <router-link to="/" class="navigation__item">Home</router-link> -->
+        <router-link to="/collection" class="navigation__item">
+            Collection
+        </router-link>
+        <router-link to="/leaderboard" class="navigation__item">
+            Leaderboard
+        </router-link>
+        <a href="#" class="navigation__item">Settings</a>
+        <!-- <router-link to="/settings" class="navigation__item">Settings</router-link> -->
     </div>
 </template>
 
@@ -17,7 +23,7 @@
     width: 100%;
 
     &__item {
-        background-color: #C6C6C6;
+        background-color: #c6c6c6;
         border-right: 1px solid #000;
         color: #fff;
         cursor: pointer;

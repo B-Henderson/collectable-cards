@@ -2,12 +2,26 @@
     <div class="leaderboard-card">
         <div class="leaderboard-card__position">{{ data.position }}</div>
         <div class="leaderboard-card__content">
-            <!-- <div class="leaderboard-card__image" :style="[data.profileImage ? { backgroundImage: 'url(require(assets/fill-murray.jpg))' } : { }]"></div> -->
-            <div class="leaderboard-card__image" :style="[data.profileImage ? { backgroundImage: 'url('+ require(`../assets/${data.profileImage}`) + ')' } : { }]"></div>
+            <div
+                class="leaderboard-card__image"
+                :style="[
+                    data.profileImage
+                        ? {
+                              backgroundImage:
+                                  'url(' +
+                                  require(`../assets/${data.profileImage}`) +
+                                  ')',
+                          }
+                        : {},
+                ]"
+            ></div>
             <div class="leaderboard-card__username">{{ data.username }}</div>
             <div class="leaderboard-card__cards-collected">
-                <span class="leaderboard-card__cards-collected__number">{{ data.cardsCollected }}</span><br>
-                cards<br>
+                <span class="leaderboard-card__cards-collected__number">{{
+                    data.cardsCollected
+                }}</span>
+                <br />
+                cards<br />
                 collected
             </div>
         </div>
@@ -19,8 +33,8 @@ export default {
     props: {
         data: {
             type: Object,
-            required: true
-        }
+            required: true,
+        },
     },
 }
 </script>

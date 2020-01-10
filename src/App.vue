@@ -14,14 +14,14 @@ import Navigation from './components/Navigation.vue'
 
 export default {
     components: {
-        Navigation
+        Navigation,
     },
 }
 </script>
 
 <style lang="scss">
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html,
@@ -30,20 +30,21 @@ body {
     background: #666375;
     display: flex;
     font-size: 16px;
-	height: 100%;
+    height: 100%;
     justify-content: center;
-	margin: 0;
-	padding: 0;
-	width: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 #app {
-	background-color: rgb(223, 223, 223);
-	box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
-	height: 100%;
+    background-color: rgb(223, 223, 223);
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+        0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    height: 100%;
     position: relative;
-	overflow: hidden;
-	width: 100%;
+    overflow: hidden;
+    width: 100%;
 
     @media (min-width: 576px) {
         height: 731px;
@@ -60,15 +61,16 @@ body {
 }
 
 .card-collection {
-	&__body {
-		display: flex;
+    &__body {
+        display: flex;
         height: 100%;
-		justify-content: center;
+        justify-content: center;
         overflow: auto;
-        padding: 0 30px;
+        overflow-x: hidden;
+        padding: 0 15px 0 30px;
         position: relative;
-		width: 100%;
-	}
+        width: 100%;
+    }
 }
 
 .fade-enter-active,

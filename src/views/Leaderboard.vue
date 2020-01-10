@@ -7,12 +7,8 @@
             :style="{ '--total': leaderboardData.length }"
         >
             <template v-for="(item, index) in leaderboardData">
-                <div 
-                    :key="index"
-                    :style="{'--i': index}"
-                    v-if="showItems"
-                >
-                    <leaderboard-card 
+                <div :key="index" :style="{ '--i': index }" v-if="showItems">
+                    <leaderboard-card
                         :data="item"
                         :data-index="index"
                         class="leaderboard-card"
@@ -20,7 +16,7 @@
                 </div>
             </template>
         </transition-group>
-        <img src="" alt="">
+        <img src="" alt="" />
     </div>
 </template>
 
@@ -29,53 +25,55 @@ import LeaderboardCard from '../components/LeaderboardCard.vue'
 
 export default {
     components: { LeaderboardCard },
-    data: function () {
-    	return {
+    data: function() {
+        return {
             leaderboardData: [
                 {
                     profileImage: 'fill-murray.jpg',
                     position: '1st',
                     username: 'Venkman',
-                    cardsCollected: 12
+                    cardsCollected: 12,
                 },
                 {
                     position: '2nd',
                     username: 'Cyclone',
-                    cardsCollected: 9
+                    cardsCollected: 9,
                 },
                 {
                     profileImage: 'place-cage.jpg',
                     position: '3rd',
                     username: 'DoomAir',
-                    cardsCollected: 7
+                    cardsCollected: 7,
                 },
                 {
                     position: '4th',
                     username: 'BitFun',
-                    cardsCollected: 4
+                    cardsCollected: 4,
                 },
                 {
                     profileImage: 'place-keanu.svg',
                     position: '5rd',
                     username: 'JohnWick',
-                    cardsCollected: 7
+                    cardsCollected: 7,
                 },
                 {
                     position: '6th',
                     username: 'BitFun',
-                    cardsCollected: 4
+                    cardsCollected: 4,
                 },
                 {
                     position: '7th',
                     username: 'Cheesecake',
-                    cardsCollected: 1
+                    cardsCollected: 1,
                 },
             ],
-            showItems: false
+            showItems: false,
         }
     },
-    mounted: function () {
-        this.$nextTick(() => { this.showItems = true })
+    mounted: function() {
+        this.$nextTick(() => {
+            this.showItems = true
+        })
     },
 }
 </script>
@@ -91,13 +89,15 @@ export default {
     }
 
     &-leave-active {
-        transition: opacity .4s linear, transform .4s cubic-bezier(.5, 0, .7, .4);
-        transition-delay: calc( 0.3s * (var(--total) - var(--i)) );
+        transition: opacity 0.4s linear,
+            transform 0.4s cubic-bezier(0.5, 0, 0.7, 0.4);
+        transition-delay: calc(0.3s * (var(--total) - var(--i)));
     }
 
     &-enter-active {
-        transition: opacity 1s linear, transform 1.5s cubic-bezier(.2, .5, .1, 1);
-        transition-delay: calc( 0.3s * var(--i) );
+        transition: opacity 1s linear,
+            transform 1.5s cubic-bezier(0.2, 0.5, 0.1, 1);
+        transition-delay: calc(0.3s * var(--i));
     }
 
     &-enter,
