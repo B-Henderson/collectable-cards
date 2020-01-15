@@ -1,6 +1,20 @@
 <template>
     <div class="leaderboard">
-        <h1 class="heading1">Leaderboard</h1>
+        <header>
+            <router-link to="/" class="navigation__back">
+                Back
+            </router-link>
+            <h1 class="heading1">Leaderboard</h1>
+        </header>
+        <transition name="fade">
+            <leaderboard-card
+                v-if="showItems"
+                :data="$store.state.base.leaderboardData[5]"
+                :data-index="index"
+                class="leaderboard-card"
+            ></leaderboard-card>
+        </transition>
+        <h2 class="heading1">Friends Leaderboard</h2>
         <transition-group
             tag="div"
             name="slide-in"
@@ -43,6 +57,21 @@ export default {
 <style lang="scss" scoped>
 .leaderboard {
     width: 100%;
+}
+
+.fade {
+    &-enter-active {
+        transition: opacity 2s;
+    }
+
+    &-leave-active {
+        transition: opacity 0.5s;
+    }
+
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
 }
 
 .slide-in {

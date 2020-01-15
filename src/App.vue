@@ -5,19 +5,8 @@
                 <router-view></router-view>
             </transition>
         </div>
-        <navigation></navigation>
     </div>
 </template>
-
-<script>
-import Navigation from './components/Navigation.vue'
-
-export default {
-    components: {
-        Navigation,
-    },
-}
-</script>
 
 <style lang="scss">
 * {
@@ -52,12 +41,27 @@ body {
     }
 }
 
+a[href="#"] {
+    cursor: not-allowed;
+}
+
+header {
+    position: relative;
+
+    .navigation__back {
+        position: absolute;
+        top: 12px;
+    }
+}
+
 .heading1 {
+    color: #fff;
+    font-size: 2em;
     text-align: center;
 }
 
 .app-content {
-    height: calc(100% - 78px);
+    height: 100%;
 }
 
 .card-collection {

@@ -1,6 +1,9 @@
 <template>
     <div class="leaderboard-card">
-        <div class="leaderboard-card__position">{{ data.position }}</div>
+        <div class="leaderboard-card__position">
+            {{ data.position }}
+            <span>{{ data.ordinal }}</span>
+        </div>
         <div class="leaderboard-card__content">
             <div
                 class="leaderboard-card__image"
@@ -47,14 +50,26 @@ export default {
     width: 100%;
 
     &__position {
+        align-items: center;
         background-color: #696969;
         color: #d9d9d9;
+        display: flex;
         font-size: 1.2em;
         font-weight: bold;
-        padding: 7px 15px 7px 7px;
+        height: 30px;
+        // padding: 7px 15px 7px 7px;
+        padding: 0 10px;
         position: absolute;
         top: 26px;
         left: 0;
+        width: 45px;
+
+        span {
+            font-size: 0.8em;
+            position: absolute;
+            top: 3px;
+            left: 20px;
+        }
     }
 
     &__content {

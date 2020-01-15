@@ -1,7 +1,11 @@
 <template>
     <div class="collection">
-        <h1 class="heading1">Your collection</h1>
-        <!-- <card></card> -->
+        <header>
+            <router-link to="/" class="navigation__back">
+                Back
+            </router-link>
+            <h1 class="heading1">Collection</h1>
+        </header>
         <div class="preview-wrapper">
             <card-preview
                 v-for="card in $store.state.base.cards"
@@ -13,11 +17,10 @@
 </template>
 
 <script>
-import Card from '../components/Card.vue'
 import CardPreview from '../components/CardPreview.vue'
 
 export default {
-    components: { Card, CardPreview },
+    components: { CardPreview },
 }
 </script>
 

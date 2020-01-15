@@ -5,7 +5,7 @@ const baseStore = {
         cards: [
             {
                 id: 1,
-                title: "Greyfriars Bobby",
+                title: 'Greyfriars Bobby',
                 imageFront: 'greyfriars-bobby-front.png',
                 imageBack: 'greyfriars-bobby-back.png',
             },
@@ -37,39 +37,46 @@ const baseStore = {
         leaderboardData: [
             {
                 profileImage: 'fill-murray.jpg',
-                position: '1st',
+                position: '1',
+                ordinal: 'st',
                 username: 'Venkman',
                 cardsCollected: 12,
             },
             {
-                position: '2nd',
+                position: '2',
+                ordinal: 'nd',
                 username: 'Cyclone',
-                cardsCollected: 9,
+                cardsCollected: 10,
             },
             {
                 profileImage: 'place-cage.jpg',
-                position: '3rd',
+                position: '3',
+                ordinal: 'rd',
                 username: 'DoomAir',
+                cardsCollected: 9,
+            },
+            {
+                position: '4',
+                ordinal: 'th',
+                username: 'FunBit',
                 cardsCollected: 7,
             },
             {
-                position: '4th',
-                username: 'BitFun',
-                cardsCollected: 4,
-            },
-            {
                 profileImage: 'place-keanu.svg',
-                position: '5rd',
+                position: '5',
+                ordinal: 'rd',
                 username: 'JohnWick',
                 cardsCollected: 7,
             },
             {
-                position: '6th',
+                position: '6',
+                ordinal: 'th',
                 username: 'BitFun',
-                cardsCollected: 4,
+                cardsCollected: 6,
             },
             {
-                position: '7th',
+                position: '7',
+                ordinal: 'th',
                 username: 'Cheesecake',
                 cardsCollected: 1,
             },

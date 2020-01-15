@@ -1,6 +1,6 @@
 import Collection from '../views/Collection.vue'
 import Leaderboard from '../views/Leaderboard.vue'
-import Settings from '../views/Settings.vue'
+import Locations from '../views/Locations.vue'
 import Home from '../views/Home.vue'
 import SingleCard from '../views/SingleCard.vue'
 import App from '../App.vue'
@@ -10,10 +10,10 @@ const routes = [
         path: '',
         component: App,
         children: [
-            { path: '', redirect: '/collection' },
+            { path: '', component: Home },
             { path: '/collection/', component: Collection },
             { path: '/leaderboard', component: Leaderboard },
-            { path: '/settings', redirect: '/collection' },
+            { path: '/locations', component: Locations },
             { path: '/card/:id', component: SingleCard, props: true}
         ],
     },

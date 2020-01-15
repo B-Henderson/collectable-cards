@@ -33,11 +33,7 @@ export default {
     background-image: url(../assets/default-card.png);
     background-position: center;
     background-size: cover;
-    height: 200px;
-    width: 114px;
-}
-
-a[href="#"].preview-card {
-    cursor: not-allowed;
+    height: 285px;
+    width: 160px;
 }
 </style>
