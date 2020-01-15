@@ -34,6 +34,46 @@ const baseStore = {
                 id: 8,
             },
         ],
+        leaderboardData: [
+            {
+                profileImage: 'fill-murray.jpg',
+                position: '1st',
+                username: 'Venkman',
+                cardsCollected: 12,
+            },
+            {
+                position: '2nd',
+                username: 'Cyclone',
+                cardsCollected: 9,
+            },
+            {
+                profileImage: 'place-cage.jpg',
+                position: '3rd',
+                username: 'DoomAir',
+                cardsCollected: 7,
+            },
+            {
+                position: '4th',
+                username: 'BitFun',
+                cardsCollected: 4,
+            },
+            {
+                profileImage: 'place-keanu.svg',
+                position: '5rd',
+                username: 'JohnWick',
+                cardsCollected: 7,
+            },
+            {
+                position: '6th',
+                username: 'BitFun',
+                cardsCollected: 4,
+            },
+            {
+                position: '7th',
+                username: 'Cheesecake',
+                cardsCollected: 1,
+            },
+        ],
     },
     mutations: {
         setLoading(state, status) {
