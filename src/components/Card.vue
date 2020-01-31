@@ -1,5 +1,11 @@
 <template>
     <div class="card-container">
+        <header>
+            <router-link to="/" class="navigation__back">
+                Back
+            </router-link>
+            <h1 class="heading1">{{ cardContent.title }}</h1>
+        </header>
         <div class="card" v-bind:class="{ flipped: this.flipped }">
             <div class="card__front">
                 <button class="card__front_flip" @click="flipCard">Flip</button>
@@ -92,7 +98,7 @@ export default {
             return images(`./${cardImage}`)
         },
         onEnter: function() {
-            this.updatePerspective(event)
+            // this.updatePerspective(event)
         },
         onLeave: function() {
             if (this.canTilt) {
@@ -106,19 +112,19 @@ export default {
                 this.flipped ? '-180' : '0'
             }deg)`
             this.flipped
-                ? (this.cardContainer.style.perspective = '800px')
+                ? (this.cardContainer.style.perspective = '600px')
                 : setTimeout(() => {
                       this.canTilt = true
-                      this.cardContainer.style.perspective = '30px'
+                      this.cardContainer.style.perspective = '600px'
                   }, 500)
 
             this.card.style.transform = style
         },
 
         onMove: function(event) {
-            if (this.timeUpdate() && this.canTilt) {
-                this.updatePerspective(event)
-            }
+            // if (this.timeUpdate() && this.canTilt) {
+            //     this.updatePerspective(event)
+            // }
         },
         updatePerspective: function(event) {
             this.updateMousePosition(event)
@@ -154,7 +160,7 @@ export default {
 
 <style lang="scss">
 .card-container {
-    perspective: 30px;
+    perspective: 800px;
     margin: 25px;
 }
 .card {
@@ -190,9 +196,10 @@ export default {
             grid-row: image;
             display: flex;
             justify-content: center;
-
+            max-height: 600px;
             img {
                 box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+                max-width: 365px;
             }
         }
 
@@ -217,7 +224,6 @@ export default {
         }
     }
     &__back {
-        padding: 1rem;
         transform: rotateY(180deg);
         display: flex;
         // align-items: center;

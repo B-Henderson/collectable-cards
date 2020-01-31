@@ -41,7 +41,7 @@ body {
     }
 }
 
-a[href="#"] {
+a[href='#'] {
     cursor: not-allowed;
 }
 
@@ -71,9 +71,13 @@ header {
         justify-content: center;
         overflow: auto;
         overflow-x: hidden;
-        padding: 0 15px 0 30px;
+        // padding: 0 15px 0 30px;
         position: relative;
         width: 100%;
+        .home,
+        .leaderboard {
+            padding: 0 30px;
+        }
     }
 }
 

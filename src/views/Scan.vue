@@ -1,8 +1,63 @@
 <template>
-    <div>
-        <video id="qrReader"></video>
+    <div class="addcard-container">
+        <div class="video-container" v-if="!scannedCard">
+            <header>
+                <router-link to="/" class="navigation__back">
+                    Back
+                </router-link>
+                <h1 class="heading1">Scan a code</h1>
+            </header>
+            <video id="qrReader"></video>
+        </div>
+        <div class="card-preview" v-if="scannedCard">
+            <card :card-id="JSON.stringify(scannedCard.id)"></card>
+        </div>
     </div>
 </template>
+<style lang="scss" scoped>
+#qrReader {
+    width: 100%;
+}
+</style>
 <script>
-export default {}
+import QrScanner from 'qr-scanner'
+import QrScannerWorkerPath from '!!file-loader!../../node_modules/qr-scanner/qr-scanner-worker.min.js'
+QrScanner.WORKER_PATH = QrScannerWorkerPath
+import Card from '../components/Card.vue'
+
+export default {
+    components: { Card },
+    data: function() {
+        return {
+            scanner: null,
+            scannedText: '',
+            scannedCard: '',
+            element: null,
+        }
+    },
+    methods: {
+        getQrCode(code) {
+            if (code) {
+                let parsedCode = JSON.parse(code)
+                this.$store.dispatch('scanCard', parsedCode)
+                this.scannedCard = parsedCode
+                this.destroyScanner()
+            }
+        },
+        destroyScanner() {
+            this.scanner.destroy()
+            this.scanner = null
+        },
+        setupScanner() {
+            this.scanner = new QrScanner(this.element, result =>
+                this.getQrCode(result)
+            )
+            this.scanner.start()
+        },
+    },
+    mounted() {
+        this.element = document.getElementById('qrReader')
+        this.setupScanner()
+    },
+}
 </script>

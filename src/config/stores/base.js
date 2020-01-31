@@ -89,15 +89,24 @@ const baseStore = {
         setCards(state, cards) {
             state.cards = cards
         },
+        addCard(state, card) {
+            state.cards.push(card)
+        },
     },
     actions: {
         fetchCards(context) {
             context.commit('setLoading', true)
         },
+        scanCard(context, card) {
+            context.commit('addCard', card)
+        },
     },
     getters: {
         getUserCards(state) {
             return state.cards.filter(card => card.collected)
+        },
+        getAllCards(state) {
+            return state.cards
         },
     },
 }

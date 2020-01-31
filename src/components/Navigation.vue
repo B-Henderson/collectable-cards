@@ -12,6 +12,9 @@
         <router-link to="/locations" class="navigation__item">
             Locations
         </router-link>
+        <router-link to="/scan" class="navigation__item">
+            Add a card
+        </router-link>
     </div>
 </template>
 
