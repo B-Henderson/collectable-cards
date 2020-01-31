@@ -2,7 +2,7 @@
     <div class="collection">
         <header>
             <router-link to="/" class="navigation__back">
-                Back
+                <img src="../assets/stone-back-button.png" alt="" />
             </router-link>
             <h1 class="heading1">Collection</h1>
         </header>
@@ -35,5 +35,12 @@ export default {
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     width: 100%;
+}
+
+.navigation__back {
+    img {
+        width: 55px;
+        margin: -10px 10px;
+    }
 }
 </style>

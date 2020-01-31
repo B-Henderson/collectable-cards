@@ -7,7 +7,7 @@
                 ? {
                       backgroundImage:
                           'url(' +
-                          require(`../assets/${cardDetails.imageFront}`) +
+                          require(`../assets/${cardDetails.imagePreview}`) +
                           ')',
                   }
                 : {},
@@ -33,7 +33,7 @@ export default {
     background-image: url(../assets/default-card.png);
     background-position: center;
     background-size: cover;
-    height: 285px;
-    width: 160px;
+    height: 330px;
+    width: 100%;
 }
 </style>

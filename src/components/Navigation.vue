@@ -23,20 +23,24 @@
     width: 100%;
 
     &__item {
-        background-color: #c6c6c6;
+        background-color: transparent;
+        background-image: url(../assets/stone-background.png);
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
         color: #fff;
         cursor: pointer;
         font-size: 1.5em;
         margin-bottom: 20px;
-        padding: 15px 0;
+        padding: 29px 0;
         text-align: center;
         text-decoration: none;
         width: 100%;
 
-        &.router-link-exact-active,
-        &:hover {
-            background-color: #696969;
-        }
+        // &.router-link-exact-active,
+        // &:hover {
+        //     background-color: #696969;
+        // }
     }
 }
 </style>
