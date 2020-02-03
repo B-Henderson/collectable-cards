@@ -1,37 +1,28 @@
 <template>
-    <div class="home">
-        <header>
-            <span>Wee </span>
-            <h1 :class="{ heading1: true, hometitle: homepage }">Gaitherers</h1>
-        </header>
+    <div class="add">
+        <h1 data-v-fae5bece="" class="heading1">Add a card</h1>
         <navigation :routes="routes"></navigation>
     </div>
 </template>
-
 <script>
 import Navigation from '../components/Navigation.vue'
-
 export default {
     components: {
         Navigation,
     },
-    data: function() {
+    data() {
         return {
             routes: [],
-            homepage: true,
         }
     },
     beforeMount() {
-        this.routes = this.$store.state.base.routelinks
+        this.routes = this.$store.state.base.subRoutes.add
     },
 }
 </script>
-
 <style lang="scss" scoped>
-.home {
+.add {
     width: 100%;
-}
-.hometitle {
-    padding-left: 50px;
+    padding: 0 30px;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="leaderboard-card">
+    <div :class="{ 'leaderboard-card': true, top3: data.position < 4 }">
         <div class="leaderboard-card__position">
             {{ data.position }}
             <span>{{ data.ordinal }}</span>
@@ -48,6 +48,12 @@ export default {
     margin-bottom: 15px;
     position: relative;
     width: 100%;
+    background-image: url('../assets/App Skin Assets/Leaderboard/Rank-4+-background.png');
+    background-size: 100% 100%;
+    &.top3 {
+        background-image: url('../assets/App Skin Assets/Leaderboard/Top-3-Rank-background.png');
+        background-size: 100% 100%;
+    }
 
     &__position {
         align-items: center;

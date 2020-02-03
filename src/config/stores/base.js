@@ -13,7 +13,7 @@ const baseStore = {
                 id: 2,
                 title: 'Robert the Bruce',
                 imageFront: 'robert-bruce-front.png',
-                imageBack: 'robert-bruce-back.png',
+                imageBack: 'robert-card-back.jpg',
             },
             {
                 id: 3,
@@ -81,6 +81,40 @@ const baseStore = {
                 cardsCollected: 1,
             },
         ],
+        routelinks: [
+            {
+                link: '/collection',
+                text: 'Collection',
+            },
+            {
+                link: '/leaderboard',
+                text: 'Leaderboard',
+            },
+            {
+                link: '/account',
+                text: 'Account',
+            },
+            {
+                link: '/locations',
+                text: 'Locations',
+            },
+            {
+                link: '/add',
+                text: 'Add a Card',
+            },
+        ],
+        subRoutes: {
+            add: [
+                {
+                    link: '/scan',
+                    text: 'Scan a card',
+                },
+                {
+                    link: '/geolocation',
+                    text: 'Check location cards',
+                },
+            ],
+        },
     },
     mutations: {
         setLoading(state, status) {

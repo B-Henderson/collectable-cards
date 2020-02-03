@@ -1,23 +1,22 @@
 <template>
     <div class="navigation">
-        <router-link to="/collection" class="navigation__item">
-            Collection
-        </router-link>
-        <router-link to="/leaderboard" class="navigation__item">
-            Leaderboard
-        </router-link>
-        <a href="#" class="navigation__item">
-            Account
-        </a>
-        <router-link to="/locations" class="navigation__item">
-            Locations
-        </router-link>
-        <router-link to="/scan" class="navigation__item">
-            Add a card
+        <router-link
+            v-for="route in routes"
+            :to="route.link"
+            :key="route.text"
+            class="navigation__item"
+        >
+            {{ route.text }}
         </router-link>
     </div>
 </template>
-
+<script>
+export default {
+    props: {
+        routes: Array,
+    },
+}
+</script>
 <style lang="scss" scoped>
 .navigation {
     display: flex;
@@ -26,19 +25,22 @@
     width: 100%;
 
     &__item {
-        background-color: #c6c6c6;
+        background-color: rgba(0, 0, 0, 0);
         color: #fff;
         cursor: pointer;
         font-size: 1.5em;
         margin-bottom: 20px;
-        padding: 15px 0;
+        padding: 25px 0;
         text-align: center;
         text-decoration: none;
         width: 100%;
-
+        background-image: url('../assets/App Skin Assets/Universal/Stone-background-(menu-and-leaderboard).png');
+        background-size: contain;
+        box-sizing: border-box;
+        background-repeat: no-repeat;
         &.router-link-exact-active,
         &:hover {
-            background-color: #696969;
+            transform: scale(1.1);
         }
     }
 }

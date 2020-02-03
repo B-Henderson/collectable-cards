@@ -8,7 +8,7 @@
         </header>
         <div class="card" v-bind:class="{ flipped: this.flipped }">
             <div class="card__front">
-                <button class="card__front_flip" @click="flipCard">Flip</button>
+                <button class="card__front_flip" @click="flipCard"></button>
                 <div class="card__front_image" v-if="cardContent.id">
                     <img
                         :src="getImgUrl(cardContent.imageFront)"
@@ -32,7 +32,7 @@
                 </div> -->
             </div>
             <div class="card__back">
-                <button class="card__back_flip" @click="flipCard">Flip</button>
+                <button class="card__back_flip" @click="flipCard"></button>
                 <div class="card__back_image" v-if="cardContent.id">
                     <img
                         :src="getImgUrl(cardContent.imageBack)"
@@ -94,7 +94,7 @@ export default {
     },
     methods: {
         getImgUrl(cardImage) {
-            const images = require.context('../assets/', false, /\.png$/)
+            const images = require.context('../assets/', false, /\.png$|\.jpg$/)
             return images(`./${cardImage}`)
         },
         onEnter: function() {
@@ -161,18 +161,20 @@ export default {
 <style lang="scss">
 .card-container {
     perspective: 800px;
-    margin: 25px;
+    overflow: hidden;
+    height: 100%;
 }
 .card {
     transition: transform 0.5s;
-    height: 600px;
-    width: 365px;
+    height: 533px;
+    width: 300px;
     transform-style: preserve-3d;
+    margin: 0 auto;
 
     &__front,
     &__back {
         backface-visibility: hidden;
-        height: 100%;
+        height: 500px;
         width: 100%;
         display: grid;
         grid-template-columns: 100%;
@@ -187,11 +189,15 @@ export default {
             margin: 1rem;
             padding: 1rem;
             z-index: 10;
+            // background: rgba(0, 0, 0, 0);
+
+            border: none;
+            cursor: pointer;
         }
 
         &_image {
-            max-width: 365px;
-            height: auto;
+            max-width: 300px;
+            height: 500px;
             grid-column: 1;
             grid-row: image;
             display: flex;
@@ -199,7 +205,7 @@ export default {
             max-height: 600px;
             img {
                 box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-                max-width: 365px;
+                max-width: 300px;
             }
         }
 

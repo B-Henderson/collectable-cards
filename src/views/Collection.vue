@@ -35,5 +35,6 @@ export default {
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     width: 100%;
+    padding-bottom: 30px;
 }
 </style>

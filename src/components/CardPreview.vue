@@ -32,8 +32,9 @@ export default {
 .preview-card {
     background-image: url(../assets/default-card.png);
     background-position: center;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     height: 285px;
-    width: 160px;
+    width: 100%;
 }
 </style>

@@ -4,7 +4,9 @@ import Locations from '../views/Locations.vue'
 import Home from '../views/Home.vue'
 import SingleCard from '../views/SingleCard.vue'
 import App from '../App.vue'
-import Scan from '../views/Scan.vue'
+import AddCard from '../views/Add.vue'
+import ScanAdd from '../components/Scan.vue'
+import geoAdd from '../components/Geo.vue'
 const routes = [
     {
         path: '',
@@ -14,7 +16,9 @@ const routes = [
             { path: '/collection/', component: Collection },
             { path: '/leaderboard', component: Leaderboard },
             { path: '/locations', component: Locations },
-            { path: '/scan', component: Scan },
+            { path: '/add', component: AddCard },
+            { path: 'geolocation', component: geoAdd },
+            { path: 'scan', component: ScanAdd },
             { path: '/card/:id', component: SingleCard, props: true },
         ],
     },

@@ -12,11 +12,19 @@
         <div class="card-preview" v-if="scannedCard">
             <card :card-id="JSON.stringify(scannedCard.id)"></card>
         </div>
+        <h2 class="added-text" v-if="scannedCard">
+            Successfully added {{ scannedCard.title }}
+        </h2>
     </div>
 </template>
 <style lang="scss" scoped>
 #qrReader {
     width: 100%;
+}
+.added-text {
+    color: #fff;
+    font-size: 1.75em;
+    text-align: center;
 }
 </style>
 <script>
