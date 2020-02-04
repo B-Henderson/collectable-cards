@@ -26,3 +26,8 @@ npm run deploy
 ```
 
 add your files and raise a pull request
+
+## Demo
+
+a demo of the project is available at:
+https://collectable-cards.herokuapp.com/#/
