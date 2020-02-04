@@ -48,7 +48,10 @@ body {
 }
 
 #app {
-    background-color: rgba(223, 223, 223, 0);
+    background-color: rgb(223, 223, 223);
+    background-image: url(./assets/wood-background.jpg);
+    background-size: cover;
+    background-position: center center;
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
         0 17px 50px 0 rgba(0, 0, 0, 0.19);
     height: 100%;
@@ -114,12 +117,13 @@ header {
         justify-content: center;
         overflow: auto;
         overflow-x: hidden;
-        // padding: 0 15px 0 30px;
+        padding: 0 15px 0 15px;
         position: relative;
         width: 100%;
-        .home,
-        .leaderboard {
-            padding: 0 30px;
+
+
+        &::-webkit-scrollbar {
+            display: none;
         }
     }
 }

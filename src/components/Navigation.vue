@@ -25,20 +25,21 @@ export default {
     width: 100%;
 
     &__item {
-        background-color: rgba(0, 0, 0, 0);
+        background-color: transparent;
+        background-image: url(../assets/stone-background.png);
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
         color: #fff;
         cursor: pointer;
         font-size: 1.5em;
         margin-bottom: 20px;
-        padding: 25px 0;
+        padding: 29px 0;
         text-align: center;
         text-decoration: none;
         width: 100%;
-        background-image: url('../assets/App Skin Assets/Universal/Stone-background-(menu-and-leaderboard).png');
-        background-size: contain;
-        box-sizing: border-box;
-        background-repeat: no-repeat;
-        &.router-link-exact-active,
+
+        // &.router-link-exact-active,
         &:hover {
             transform: scale(1.1);
         }

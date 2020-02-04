@@ -1,8 +1,11 @@
 <template>
     <div class="home">
         <header>
-            <span>Wee </span>
-            <h1 :class="{ heading1: true, hometitle: homepage }">Gaitherers</h1>
+            <img
+                src="../assets/wee-gaitherers-logo.png"
+                alt="wee gaitherers logo"
+                class="home__logo"
+            />
         </header>
         <navigation :routes="routes"></navigation>
     </div>
@@ -30,6 +33,11 @@ export default {
 <style lang="scss" scoped>
 .home {
     width: 100%;
+
+    &__logo {
+        padding: 80px 20px;
+        width: 100%;
+    }
 }
 .hometitle {
     padding-left: 50px;

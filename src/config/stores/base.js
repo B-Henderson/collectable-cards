@@ -6,14 +6,16 @@ const baseStore = {
             {
                 id: 1,
                 title: 'Greyfriars Bobby',
+                imagePreview: '',
                 imageFront: 'greyfriars-bobby-front.png',
                 imageBack: 'greyfriars-bobby-back.png',
             },
             {
                 id: 2,
                 title: 'Robert the Bruce',
-                imageFront: 'robert-bruce-front.png',
-                imageBack: 'robert-card-back.jpg',
+                imagePreview: 'robert-the-bruce-preview.jpg',
+                imageFront: 'robert-the-bruce-card-front.jpg',
+                imageBack: 'robert-the-bruce-card-back.jpg',
             },
             {
                 id: 3,

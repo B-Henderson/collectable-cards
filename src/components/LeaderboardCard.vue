@@ -1,6 +1,15 @@
 <template>
-    <div :class="{ 'leaderboard-card': true, top3: data.position < 4 }">
-        <div class="leaderboard-card__position">
+    <div class="leaderboard-card">
+        <div
+            :class="[
+                'leaderboard-card__position',
+                data.position === '1' ||
+                data.position === '2' ||
+                data.position === '3'
+                    ? 'leaderboard-card__position--top-three'
+                    : '',
+            ]"
+        >
             {{ data.position }}
             <span>{{ data.ordinal }}</span>
         </div>
@@ -24,8 +33,7 @@
                     data.cardsCollected
                 }}</span>
                 <br />
-                cards<br />
-                collected
+                points
             </div>
         </div>
     </div>
@@ -44,8 +52,13 @@ export default {
 
 <style lang="scss">
 .leaderboard-card {
-    background-color: #d9d9d9;
+    background-color: transparent;
+    background-image: url(../assets/stone-background.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin-bottom: 15px;
+    max-height: 85px;
     position: relative;
     width: 100%;
     background-image: url('../assets/App Skin Assets/Leaderboard/Rank-4+-background.png');
@@ -58,17 +71,22 @@ export default {
     &__position {
         align-items: center;
         background-color: #696969;
+        background-image: url(../assets/rank-background.png);
+        background-size: cover;
         color: #d9d9d9;
         display: flex;
         font-size: 1.2em;
         font-weight: bold;
         height: 30px;
-        // padding: 7px 15px 7px 7px;
         padding: 0 10px;
         position: absolute;
-        top: 26px;
-        left: 0;
+        top: 10px;
+        left: -7px;
         width: 45px;
+
+        &--top-three {
+            background-image: url(../assets/top-rank-background.png);
+        }
 
         span {
             font-size: 0.8em;
@@ -80,6 +98,7 @@ export default {
 
     &__content {
         align-items: center;
+        color: white;
         display: flex;
         justify-content: space-between;
         padding: 10px 20px;
@@ -87,12 +106,12 @@ export default {
     }
 
     &__image {
-        background-color: black;
+        background-color: white;
         background-image: url(../assets/default-profile.jpg);
         background-position: center;
         background-size: cover;
-        height: 70px;
-        width: 70px;
+        height: 65px;
+        width: 65px;
     }
 
     &__username {

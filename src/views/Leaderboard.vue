@@ -2,7 +2,7 @@
     <div class="leaderboard">
         <header>
             <router-link to="/" class="navigation__back">
-                Back
+                <img src="../assets/stone-back-button.png" alt="" />
             </router-link>
             <h1 class="heading1">Leaderboard</h1>
         </header>
@@ -57,6 +57,13 @@ export default {
 <style lang="scss" scoped>
 .leaderboard {
     width: 100%;
+}
+
+.navigation__back {
+    img {
+        width: 55px;
+        margin: -10px 10px;
+    }
 }
 
 .fade {

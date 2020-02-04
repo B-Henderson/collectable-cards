@@ -8,44 +8,33 @@
         </header>
         <div class="card" v-bind:class="{ flipped: this.flipped }">
             <div class="card__front">
-                <button class="card__front_flip" @click="flipCard"></button>
+                <router-link to="/collection" class="navigation__back">
+                    <img src="../assets/back-button.png" alt="" />
+                </router-link>
+                <button class="card__front_flip" @click="flipCard">
+                    <img src="../assets/flip-card-button.png" alt="" />
+                </button>
                 <div class="card__front_image" v-if="cardContent.id">
                     <img
                         :src="getImgUrl(cardContent.imageFront)"
                         alt="card.title"
                         class="card__front_image_src"
                     />
-                    <!-- <img
-                        v-if="card"
-                        :src="'../assets/' + card.imageFront"
-                        alt="image"
-                        class="card__front_image_src"
-                    /> -->
                 </div>
-                <!-- <div class="card__front_footer">
-                    <div class="card__front_footer_rarity">
-                        <span>rare</span>
-                    </div>
-                    <div class="card__front_footer_name">
-                        Robert the Bruce(front)
-                    </div>
-                </div> -->
             </div>
             <div class="card__back">
-                <button class="card__back_flip" @click="flipCard"></button>
+                <router-link to="/collection" class="navigation__back">
+                    <img src="../assets/back-button.png" alt="" />
+                </router-link>
+                <button class="card__back_flip" @click="flipCard">
+                    <img src="../assets/flip-card-button.png" alt="" />
+                </button>
                 <div class="card__back_image" v-if="cardContent.id">
                     <img
                         :src="getImgUrl(cardContent.imageBack)"
                         alt="card.title"
                         class="card__back_image_src"
                     />
-                    <!-- <h1>Robert the Bruce</h1> -->
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Culpa atque quae enim, accusamus recusandae
-                        pariatur. Sint dolore dicta quod veniam nemo maiores,
-                        reiciendis fuga ratione. Sequi deleniti maxime ex cum!
-                    </p> -->
                 </div>
             </div>
         </div>
@@ -94,7 +83,7 @@ export default {
     },
     methods: {
         getImgUrl(cardImage) {
-            const images = require.context('../assets/', false, /\.png$|\.jpg$/)
+            const images = require.context('../assets/', false, /\.(png|jpg)$/)
             return images(`./${cardImage}`)
         },
         onEnter: function() {
@@ -126,13 +115,13 @@ export default {
             //     this.updatePerspective(event)
             // }
         },
-        updatePerspective: function(event) {
-            this.updateMousePosition(event)
-            this.updateTransform(
-                (this.mouse.y / this.innerCard.offsetHeight / 2).toFixed(2),
-                (this.mouse.x / this.innerCard.offsetWidth / 2).toFixed(2)
-            )
-        },
+        // updatePerspective: function(event) {
+        //     this.updateMousePosition(event)
+        //     this.updateTransform(
+        //         (this.mouse.y / this.innerCard.offsetHeight / 2).toFixed(2),
+        //         (this.mouse.x / this.innerCard.offsetWidth / 2).toFixed(2)
+        //     )
+        // },
         timeUpdate() {
             return this.counter++ % this.updateRate === 0
         },
@@ -183,16 +172,31 @@ export default {
         position: absolute;
 
         &_flip {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
             position: absolute;
             right: 0;
-            top: 0;
+            top: -5px;
             margin: 1rem;
             padding: 1rem;
             z-index: 10;
-            // background: rgba(0, 0, 0, 0);
 
-            border: none;
-            cursor: pointer;
+            img {
+                width: 22px;
+            }
+        }
+
+        .navigation__back {
+            margin: 1rem;
+            padding: 1rem;
+            position: absolute;
+            top: -6px;
+            left: -10px;
+
+            img {
+                width: 22px;
+            }
         }
 
         &_image {
@@ -205,7 +209,7 @@ export default {
             max-height: 600px;
             img {
                 box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-                max-width: 300px;
+                width: 100%;
             }
         }
 
@@ -234,10 +238,12 @@ export default {
         display: flex;
         // align-items: center;
         justify-content: center;
+
         h1 {
             margin: 3rem 0 3rem 0;
             font-size: 3rem;
         }
+
         p {
             font-size: 1.2rem;
             line-height: 1.3rem;
