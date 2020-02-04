@@ -2,7 +2,7 @@
     <div class="card-container">
         <header>
             <router-link to="/" class="navigation__back">
-                Back
+                <img src="../assets/stone-back-button.png" alt="" />
             </router-link>
             <h1 class="heading1">{{ cardContent.title }}</h1>
         </header>

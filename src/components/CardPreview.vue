@@ -5,7 +5,7 @@
         :style="[
             cardDetails.imageFront
                 ? {
-                      backgroundImage:
+                      backgroundImage: 
                           'url(' +
                           require(`../assets/${cardDetails.imagePreview}`) +
                           ')',

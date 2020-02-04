@@ -35,7 +35,7 @@ export default {
     width: 100%;
 
     &__logo {
-        padding: 80px 20px;
+        padding: 35px 20px;
         width: 100%;
     }
 }

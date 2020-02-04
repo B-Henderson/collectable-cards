@@ -6,7 +6,7 @@ const baseStore = {
             {
                 id: 1,
                 title: 'Greyfriars Bobby',
-                imagePreview: '',
+                imagePreview: 'greyfriars-bobby-front.png',
                 imageFront: 'greyfriars-bobby-front.png',
                 imageBack: 'greyfriars-bobby-back.png',
             },
@@ -19,21 +19,17 @@ const baseStore = {
             },
             {
                 id: 3,
+                title: 'Glencoe',
+                imagePreview: 'Glencoe.jpg',
+                imageFront: 'Glencoe.jpg',
+                imageBack: 'Back-of-Card.jpg',
             },
             {
                 id: 4,
-            },
-            {
-                id: 5,
-            },
-            {
-                id: 6,
-            },
-            {
-                id: 7,
-            },
-            {
-                id: 8,
+                title: 'Culross',
+                imagePreview: 'Culross.jpg',
+                imageFront: 'Culross.jpg',
+                imageBack: 'Back-of-Card.jpg',
             },
         ],
         leaderboardData: [

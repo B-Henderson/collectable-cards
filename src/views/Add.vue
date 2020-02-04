@@ -1,5 +1,8 @@
 <template>
     <div class="add">
+            <router-link to="/" class="navigation__back">
+                <img src="../assets/stone-back-button.png" alt="" />
+            </router-link>
         <h1 data-v-fae5bece="" class="heading1">Add a card</h1>
         <navigation :routes="routes"></navigation>
     </div>
@@ -23,6 +26,6 @@ export default {
 <style lang="scss" scoped>
 .add {
     width: 100%;
-    padding: 0 30px;
+    padding: 30px 0px;
 }
 </style>

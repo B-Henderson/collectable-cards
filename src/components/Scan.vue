@@ -2,9 +2,9 @@
     <div class="addcard-container">
         <div class="video-container" v-if="!scannedCard">
             <header>
-                <router-link to="/" class="navigation__back">
-                    Back
-                </router-link>
+            <router-link to="/" class="navigation__back">
+                <img src="../assets/stone-back-button.png" alt="" />
+            </router-link>
                 <h1 class="heading1">Scan a code</h1>
             </header>
             <video id="qrReader"></video>
