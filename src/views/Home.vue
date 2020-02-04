@@ -7,7 +7,7 @@
                 class="home__logo"
             />
         </header>
-        <navigation></navigation>
+        <navigation :routes="routes"></navigation>
     </div>
 </template>
 
@@ -18,6 +18,15 @@ export default {
     components: {
         Navigation,
     },
+    data: function() {
+        return {
+            routes: [],
+            homepage: true,
+        }
+    },
+    beforeMount() {
+        this.routes = this.$store.state.base.routelinks
+    },
 }
 </script>
 
@@ -26,8 +35,11 @@ export default {
     width: 100%;
 
     &__logo {
-        padding: 80px 20px;
+        padding: 35px 20px;
         width: 100%;
     }
+}
+.hometitle {
+    padding-left: 50px;
 }
 </style>

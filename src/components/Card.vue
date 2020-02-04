@@ -1,5 +1,11 @@
 <template>
     <div class="card-container">
+        <header>
+            <router-link to="/" class="navigation__back">
+                <img src="../assets/stone-back-button.png" alt="" />
+            </router-link>
+            <h1 class="heading1">{{ cardContent.title }}</h1>
+        </header>
         <div class="card" v-bind:class="{ flipped: this.flipped }">
             <div class="card__front">
                 <router-link to="/collection" class="navigation__back">
@@ -78,11 +84,10 @@ export default {
     methods: {
         getImgUrl(cardImage) {
             const images = require.context('../assets/', false, /\.(png|jpg)$/)
-            console.log(cardImage)
             return images(`./${cardImage}`)
         },
         onEnter: function() {
-            this.updatePerspective(event)
+            // this.updatePerspective(event)
         },
         onLeave: function() {
             if (this.canTilt) {
@@ -96,19 +101,19 @@ export default {
                 this.flipped ? '-180' : '0'
             }deg)`
             this.flipped
-                ? (this.cardContainer.style.perspective = '800px')
+                ? (this.cardContainer.style.perspective = '600px')
                 : setTimeout(() => {
                       this.canTilt = true
-                      this.cardContainer.style.perspective = '30px'
+                      this.cardContainer.style.perspective = '600px'
                   }, 500)
 
             this.card.style.transform = style
         },
 
         onMove: function(event) {
-            if (this.timeUpdate() && this.canTilt) {
-                this.updatePerspective(event)
-            }
+            // if (this.timeUpdate() && this.canTilt) {
+            //     this.updatePerspective(event)
+            // }
         },
         // updatePerspective: function(event) {
         //     this.updateMousePosition(event)
@@ -144,19 +149,21 @@ export default {
 
 <style lang="scss">
 .card-container {
-    perspective: 30px;
-    margin: 25px;
+    perspective: 800px;
+    overflow: hidden;
+    height: 100%;
 }
 .card {
     transition: transform 0.5s;
-    height: 600px;
-    width: 365px;
+    height: 533px;
+    width: 300px;
     transform-style: preserve-3d;
+    margin: 0 auto;
 
     &__front,
     &__back {
         backface-visibility: hidden;
-        height: 100%;
+        height: 500px;
         width: 100%;
         display: grid;
         grid-template-columns: 100%;
@@ -193,13 +200,13 @@ export default {
         }
 
         &_image {
-            max-width: 365px;
-            height: auto;
+            max-width: 300px;
+            height: 500px;
             grid-column: 1;
             grid-row: image;
             display: flex;
             justify-content: center;
-
+            max-height: 600px;
             img {
                 box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
                 width: 100%;

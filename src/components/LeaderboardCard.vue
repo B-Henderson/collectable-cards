@@ -61,6 +61,12 @@ export default {
     max-height: 85px;
     position: relative;
     width: 100%;
+    background-image: url('../assets/App Skin Assets/Leaderboard/Rank-4+-background.png');
+    background-size: 100% 100%;
+    &.top3 {
+        background-image: url('../assets/App Skin Assets/Leaderboard/Top-3-Rank-background.png');
+        background-size: 100% 100%;
+    }
 
     &__position {
         align-items: center;

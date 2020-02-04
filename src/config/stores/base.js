@@ -6,7 +6,7 @@ const baseStore = {
             {
                 id: 1,
                 title: 'Greyfriars Bobby',
-                imagePreview: '',
+                imagePreview: 'greyfriars-bobby-front.png',
                 imageFront: 'greyfriars-bobby-front.png',
                 imageBack: 'greyfriars-bobby-back.png',
             },
@@ -19,21 +19,17 @@ const baseStore = {
             },
             {
                 id: 3,
+                title: 'Glencoe',
+                imagePreview: 'Glencoe.jpg',
+                imageFront: 'Glencoe.jpg',
+                imageBack: 'Back-of-Card.jpg',
             },
             {
                 id: 4,
-            },
-            {
-                id: 5,
-            },
-            {
-                id: 6,
-            },
-            {
-                id: 7,
-            },
-            {
-                id: 8,
+                title: 'Culross',
+                imagePreview: 'Culross.jpg',
+                imageFront: 'Culross.jpg',
+                imageBack: 'Back-of-Card.jpg',
             },
         ],
         leaderboardData: [
@@ -83,6 +79,40 @@ const baseStore = {
                 cardsCollected: 1,
             },
         ],
+        routelinks: [
+            {
+                link: '/collection',
+                text: 'Collection',
+            },
+            {
+                link: '/leaderboard',
+                text: 'Leaderboard',
+            },
+            {
+                link: '/account',
+                text: 'Account',
+            },
+            {
+                link: '/locations',
+                text: 'Locations',
+            },
+            {
+                link: '/add',
+                text: 'Add a Card',
+            },
+        ],
+        subRoutes: {
+            add: [
+                {
+                    link: '/scan',
+                    text: 'Scan a card',
+                },
+                {
+                    link: '/geolocation',
+                    text: 'Check location cards',
+                },
+            ],
+        },
     },
     mutations: {
         setLoading(state, status) {
@@ -91,15 +121,24 @@ const baseStore = {
         setCards(state, cards) {
             state.cards = cards
         },
+        addCard(state, card) {
+            state.cards.push(card)
+        },
     },
     actions: {
         fetchCards(context) {
             context.commit('setLoading', true)
         },
+        scanCard(context, card) {
+            context.commit('addCard', card)
+        },
     },
     getters: {
         getUserCards(state) {
             return state.cards.filter(card => card.collected)
+        },
+        getAllCards(state) {
+            return state.cards
         },
     },
 }

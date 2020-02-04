@@ -9,6 +9,27 @@
 </template>
 
 <style lang="scss">
+@font-face {
+    font-family: 'hewitt';
+    src: url('./assets/Fonts/cooper-hewitt/CooperHewitt-Medium.otf')
+        format('opentype');
+}
+@font-face {
+    font-family: 'hewitt';
+    font-weight: bold;
+    src: url('./assets/Fonts/cooper-hewitt/CooperHewitt-bold.otf')
+        format('opentype');
+}
+@font-face {
+    font-family: 'montserrat';
+    src: url('./assets/Fonts/montserrat/Montserrat-Medium.otf')
+        format('opentype');
+}
+@font-face {
+    font-family: 'montserrat';
+    font-weight: bold;
+    src: url('./assets/Fonts/montserrat/Montserrat-Bold.otf') format('opentype');
+}
 * {
     box-sizing: border-box;
 }
@@ -36,8 +57,10 @@ body {
     height: 100%;
     position: relative;
     overflow: hidden;
+    font-family: 'hewitt';
     width: 100%;
-
+    background-image: url('./assets/App Skin Assets/Universal/Wood-Background.jpg');
+    background-size: contain;
     @media (min-width: 576px) {
         height: 731px;
         width: 411px;
@@ -50,17 +73,37 @@ a[href='#'] {
 
 header {
     position: relative;
-
+    font-family: 'montserrat';
+    font-weight: bold;
+    padding-top: 30px;
     .navigation__back {
         position: absolute;
         top: 12px;
+    }
+    span {
+        font-size: 3rem;
+
+        color: #fff;
+
+        text-align: center;
+
+        top: 40%;
+
+        transform: rotate(-35deg);
+
+        left: -2%;
+
+        position: absolute;
     }
 }
 
 .heading1 {
     color: #fff;
-    font-size: 2em;
+    font-size: 3em;
     text-align: center;
+    margin-bottom: 10px;
+    // background-image: url('./assets/App Skin Assets/Front of Card/Card-Name-Plate.jpg');
+    // background-size: cover;
 }
 
 .app-content {
@@ -77,6 +120,7 @@ header {
         padding: 0 15px 0 15px;
         position: relative;
         width: 100%;
+
 
         &::-webkit-scrollbar {
             display: none;

@@ -1,20 +1,22 @@
 <template>
     <div class="navigation">
-        <router-link to="/collection" class="navigation__item">
-            Collection
-        </router-link>
-        <router-link to="/leaderboard" class="navigation__item">
-            Leaderboard
-        </router-link>
-        <a href="#" class="navigation__item">
-            Account
-        </a>
-        <router-link to="/locations" class="navigation__item">
-            Locations
+        <router-link
+            v-for="route in routes"
+            :to="route.link"
+            :key="route.text"
+            class="navigation__item"
+        >
+            {{ route.text }}
         </router-link>
     </div>
 </template>
-
+<script>
+export default {
+    props: {
+        routes: Array,
+    },
+}
+</script>
 <style lang="scss" scoped>
 .navigation {
     display: flex;
@@ -38,9 +40,9 @@
         width: 100%;
 
         // &.router-link-exact-active,
-        // &:hover {
-        //     background-color: #696969;
-        // }
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 }
 </style>
